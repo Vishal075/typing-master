@@ -1,0 +1,203 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BACKGROUND */
+body{
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #667eea, #764ba2); */
+
+  background: linear-gradient(135deg, #2d2f36, #4d207a);
+}
+
+/* GLASS EFFECT */
+.wrapper{
+  width: 770px;
+  padding: 35px;
+  background: rgba(116, 91, 91, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* HIDDEN INPUT */
+.wrapper .input-field{
+  opacity: 0;
+  position: absolute;
+}
+
+/* CONTENT BOX */
+.wrapper .content-box{
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* TYPING TEXT */
+.typing-text{
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.typing-text p{
+  font-size: 20px;
+  text-align: justify;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+/* CHARACTER STATES */
+.typing-text span.correct{
+  color: #4caf50;
+}
+
+.typing-text span.incorrect{
+  color: #fff;
+  background: #ff4d4d;
+  border-radius: 4px;
+}
+
+.typing-text span.active{
+  color: #00e5ff;
+}
+
+/* BLINK CURSOR */
+.typing-text span.active::before{
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: -3px;
+  left: 0;
+  background: #00e5ff;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink{
+  50%{ opacity: 0; }
+}
+
+/* STATS SECTION */
+.content{
+  margin-top: 20px;
+  display: flex;
+  padding-top: 15px;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+/* RESULT BOX */
+.result-details{
+  display: flex;
+  gap: 20px;
+}
+
+.result-details li{
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.result-details li p{
+  font-size: 16px;
+  color: #fff;
+}
+
+.result-details li span{
+  font-size: 18px;
+  margin-left: 8px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* BUTTON */
+.content button{
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* BUTTON HOVER EFFECT */
+.content button:hover{
+  transform: scale(1.08);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* CLICK EFFECT */
+.content button:active{
+  transform: scale(0.95);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px){
+  .wrapper{
+    padding: 20px;
+  }
+
+  .typing-text p{
+    font-size: 18px;
+  }
+
+  .content{
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+button{
+  position: relative;
+  overflow: hidden;
+}
+
+button span.ripple{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.5s linear;
+}
+
+
+.title{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  /* gradient text */
+  background: linear-gradient(135deg, #e6e929, #f79503);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* glow */
+  text-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+}
+
+@keyframes ripple{
+  to{
+    transform: scale(4);
+    opacity: 0;
+  }
+}
