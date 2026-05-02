@@ -89,23 +89,3 @@ function resetGame() {
 loadParagraph();
 inpField.addEventListener("input", initTyping);
 tryAgainBtn.addEventListener("click", resetGame);
-
-inpField.addEventListener("focus", () => {
-    document.querySelector(".wrapper").style.boxShadow =
-        "0 0 25px rgba(0,255,255,0.6)";
-});
-
-inpField.addEventListener("blur", () => {
-    document.querySelector(".wrapper").style.boxShadow =
-        "0 8px 30px rgba(0,0,0,0.2)";
-});
-
-typingText.scrollTop = typingText.querySelector(".active").offsetTop - 50;
-
-tryAgainBtn.addEventListener("click", function(e){
-    let circle = document.createElement("span");
-    circle.classList.add("ripple");
-    this.appendChild(circle);
-
-    setTimeout(() => circle.remove(), 500);
-});
